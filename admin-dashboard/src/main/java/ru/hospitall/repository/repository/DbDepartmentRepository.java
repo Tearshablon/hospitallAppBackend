@@ -37,6 +37,7 @@ public class DbDepartmentRepository implements DepartmentRepository {
             insertDepartment(department);
         } else {
             updateDepartment(department);
+
         }
     }
 

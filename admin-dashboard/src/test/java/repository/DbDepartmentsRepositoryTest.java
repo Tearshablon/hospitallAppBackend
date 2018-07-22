@@ -130,35 +130,8 @@ public class DbDepartmentsRepositoryTest {
         List<Department> departmentListWithDoctors = departmentRepository.findAllDepartmentsWithDoctors();
 
         assertThat(departmentListWithDoctors.size()).isEqualTo(2);
-        assertThat(departmentListWithDoctors.get(0).getName()).isEqualTo(departmentList.get(0).getName());
-        assertThat(departmentListWithDoctors.get(0).getDescription()).isEqualTo(departmentList.get(0).getDescription());
-        assertThat(departmentListWithDoctors.get(0).getDoctorList().size()).isNotNull();
-        assertThat(departmentListWithDoctors.get(1).getName()).isEqualTo(departmentList.get(1).getName());
-        assertThat(departmentListWithDoctors.get(1).getDescription()).isEqualTo(departmentList.get(1).getDescription());
-        assertThat(departmentListWithDoctors.get(1).getDoctorList().size()).isNotNull();
-
-        List<Doctor> doctorList = doctorRepository.findAllDoctors();
-        assertThat(departmentListWithDoctors.get(0).getDoctorList().size()).isEqualTo(3);
-
-        assertThat(departmentListWithDoctors.get(0).getDoctorList().get(0).getFirstName()).isEqualTo(doctorList.get(0).getFirstName());
-        assertThat(departmentListWithDoctors.get(0).getDoctorList().get(0).getLastName()).isEqualTo(doctorList.get(0).getLastName());
-        assertThat(departmentListWithDoctors.get(0).getDoctorList().get(0).getPhoto()).isEqualTo(doctorList.get(0).getPhoto());
-
-        assertThat(departmentListWithDoctors.get(0).getDoctorList().get(1).getFirstName()).isEqualTo(doctorList.get(1).getFirstName());
-        assertThat(departmentListWithDoctors.get(0).getDoctorList().get(1).getLastName()).isEqualTo(doctorList.get(1).getLastName());
-        assertThat(departmentListWithDoctors.get(0).getDoctorList().get(1).getPhoto()).isEqualTo(doctorList.get(1).getPhoto());
-
-        assertThat(departmentListWithDoctors.get(0).getDoctorList().get(2).getFirstName()).isEqualTo(doctorList.get(2).getFirstName());
-        assertThat(departmentListWithDoctors.get(0).getDoctorList().get(2).getLastName()).isEqualTo(doctorList.get(2).getLastName());
-        assertThat(departmentListWithDoctors.get(0).getDoctorList().get(2).getPhoto()).isEqualTo(doctorList.get(2).getPhoto());
-
-        assertThat(departmentListWithDoctors.get(1).getDoctorList().get(0).getFirstName()).isEqualTo(doctorList.get(3).getFirstName());
-        assertThat(departmentListWithDoctors.get(1).getDoctorList().get(0).getLastName()).isEqualTo(doctorList.get(3).getLastName());
-        assertThat(departmentListWithDoctors.get(1).getDoctorList().get(0).getPhoto()).isEqualTo(doctorList.get(3).getPhoto());
-
-        assertThat(departmentListWithDoctors.get(1).getDoctorList().get(1).getFirstName()).isEqualTo(doctorList.get(4).getFirstName());
-        assertThat(departmentListWithDoctors.get(1).getDoctorList().get(1).getLastName()).isEqualTo(doctorList.get(4).getLastName());
-        assertThat(departmentListWithDoctors.get(1).getDoctorList().get(1).getPhoto()).isEqualTo(doctorList.get(4).getPhoto());
+        assertThat(departmentListWithDoctors.get(0).getDoctorList().size()).isEqualTo(2);
+        assertThat(departmentListWithDoctors.get(1).getDoctorList().size()).isEqualTo(3);
     }
 }
 
