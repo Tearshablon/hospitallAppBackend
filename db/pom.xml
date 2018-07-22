@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>system</artifactId>
+        <groupId>ru.hospitallapp</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>db</artifactId>
+
+    <!--<groupId>ru.rtech.thisplease</groupId>-->
+    <!--<artifactId>db</artifactId>-->
+    <!--<version>1.0</version>-->
+    <!--<packaging>jar</packaging>-->
+
+    <name>db</name>
+
+    <profiles>
+
+        <profile>
+            <id>server</id>
+
+            <properties>
+                <database.url>jdbc:mysql://35.228.54.188:3306/sys</database.url>
+                <database.username>apk</database.username>
+                <database.password>Qwerty$4</database.password>
+            </properties>
+
+        </profile>
+
+    </profiles>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>3.5.3</version>
+
+
+                <configuration>
+                    <driver>org.mariadb.jdbc.Driver</driver>
+                    <url>${database.url}</url>
+                    <username>${database.username}</username>
+                    <password>${database.password}</password>
+                    <propertyFile>src/main/resources/liquibase.properties</propertyFile>
+                    <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+                </configuration>
+
+
+                <executions>
+                    <execution>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>3.5.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>1.5.4</version>
+        </dependency>
+    </dependencies>
+
+</project>

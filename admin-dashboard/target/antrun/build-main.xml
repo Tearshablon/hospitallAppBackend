@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <sshexec trust="true" keyfile="C:\Users\dshablov\this-please\hospitallapp\admin-dashboard/keystore/ssh/google_compute_engine" host="35.228.54.188" command="nohup pkill java &amp;" username="NKuzmin"/>
+  <scp trust="true" file="C:\Users\dshablov\this-please\hospitallapp\admin-dashboard/target/admin-dashboard-1.0.jar" todir="NKuzmin@35.228.54.188:/opt/this-please/admin-dashboard.jar" keyfile="C:\Users\dshablov\this-please\hospitallapp\admin-dashboard/keystore/ssh/google_compute_engine" sftp="yes"/>
+  <sshexec trust="true" keyfile="C:\Users\dshablov\this-please\hospitallapp\admin-dashboard/keystore/ssh/google_compute_engine" host="35.228.54.188" command="nohup java -jar /opt/this-please/admin-dashboard.jar &gt; /dev/null 2&gt; error.log &lt; /dev/null &amp;" username="NKuzmin"/>
+</target>
+</project>
