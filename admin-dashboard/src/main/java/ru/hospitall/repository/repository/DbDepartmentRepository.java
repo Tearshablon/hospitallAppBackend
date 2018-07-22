@@ -36,6 +36,7 @@ public class DbDepartmentRepository implements DepartmentRepository {
         if (department.getId() == null) {
             insertDepartment(department);
         } else {
+
             updateDepartment(department);
         }
     }
