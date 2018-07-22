@@ -4,9 +4,7 @@
 *.iml
 *.iws
 *.jar
-db/target
-libs/target
-admin-dashboard/target
+out/
 # Mac
 .DS_Store
 
