@@ -89,6 +89,7 @@ public class DbDepartmentRepository implements DepartmentRepository {
                     .selectFrom(DEPARTMENT.join(DOCTOR)
                             .on(DEPARTMENT.ID.eq(DOCTOR.DEPARTMENT_ID).and(DOCTOR.DELETED.ne((byte) 1))))
                     .where(DEPARTMENT.DELETED.ne((byte) 1))
+                    .orderBy(DOCTOR.LAST_NAME.asc())
                     .fetch()
                     .intoGroups(DEPARTMENT.fields());
 
