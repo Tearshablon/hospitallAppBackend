@@ -261,9 +261,9 @@
                             <!-- JDBC connection parameters -->
                             <jdbc>
                                 <driver>org.mariadb.jdbc.Driver</driver>
-                                <url>jdbc:mariadb://35.228.54.188:3306/sys</url>
-                                <username>apk</username>
-                                <password>Qwerty$4</password>
+                                <url>${jooq.db.url}</url>
+                                <username>${jooq.db.username}</username>
+                                <password>${jooq.db.password}</password>
                             </jdbc>
 
                             <!-- Generator parameters -->
@@ -303,6 +303,26 @@
 
         </profile>
 
+
+
+        <profile>
+            <id>localhost</id>
+
+            <properties>
+                <db.url>jdbc:mariadb://localhost:3307/sys</db.url>
+                <db.username>root</db.username>
+                <db.password>Qwerty$4</db.password>
+
+                <jooq.db.url>jdbc:mariadb://localhost:3307/sys</jooq.db.url>
+                <jooq.db.username>apk</jooq.db.username>
+                <jooq.db.password>Qwerty$4</jooq.db.password>
+
+                <host>localhost</host>
+                <username>NKuzmin</username>
+
+            </properties>
+
+        </profile>
 
     </profiles>
 
