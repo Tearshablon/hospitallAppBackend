@@ -16,4 +16,5 @@ public class Department {
     private DepartmentName name;
     private String description;
     private List<Doctor> doctorList;
+
 }
